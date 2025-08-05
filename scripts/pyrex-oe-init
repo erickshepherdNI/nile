@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# This script is run by pyrex within the container as part of the init
+# process, and exists to do some checks.
+
+SCRIPT_ROOT=$(realpath $(dirname $BASH_SOURCE))
+REPO_ROOT=$(realpath $SCRIPT_ROOT/..)
+
+if [ -e ${REPO_ROOT}/build/conf/site.conf ]; then
+    ${SCRIPT_ROOT}/check-ni-repos || exit 1
+fi
+
+# Chain to poky's initilization script.
+unset SCRIPT_ROOT
+. "${REPO_ROOT}/sources/poky/oe-init-build-env"

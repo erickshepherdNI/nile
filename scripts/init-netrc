@@ -12,6 +12,7 @@ if [ -f $HOME/.netrc ]; then
 	mkdir -p $(dirname $NETRC)
 	cp $HOME/.netrc $NETRC
 else
+	echo "No local .netrc file found to copy"
 	touch $NETRC
 fi
 
