@@ -19,8 +19,12 @@ fi
 # Neither GitHub nor AzDO care about the login name, other than it must be
 # something non-empty.
 if [ -n "${AZDO_TOKEN}" ]; then
+	echo "Found AzDO token: ${AZDO_TOKEN}"
 	echo "machine dev.azure.com login api password ${AZDO_TOKEN}" >> $NETRC
 fi
+
+echo "Printing .netrc..."
+cat $NETRC
 
 #if [ -n "${GITHUB_TOKEN}" ]; then
 #	echo "machine github.com login api password ${GITHUB_TOKEN}" >> $NETRC
