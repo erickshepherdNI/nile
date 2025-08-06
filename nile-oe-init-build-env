@@ -116,10 +116,11 @@ export BB_ENV_PASSTHROUGH_ADDITIONS="${BB_ENV_PASSTHROUGH_ADDITIONS:-} \
 # Setup pyrex config variables
 export PYREXCONFFILE=${PYREXCONFFILE:-"${SCRIPT_ROOT}/pyrex.ini"}
 export PYREX_CONFIG_BIND="${REPO_ROOT}"
-export PYREX_OEINIT="${REPO_ROOT}/sources/openembedded-core/oe-init-build-env"
+export PYREX_OEINIT="${REPO_ROOT}/scripts/pyrex-oe-init"
 export PYREX_ROOT="${REPO_ROOT}/sources/pyrex"
 
 export PYREX_BUILD_NILE_IMAGE="${PYREX_BUILD_NILE_IMAGE:-build-nile}"
+echo "INFO: Using pyrex image: ${PYREX_BUILD_NILE_IMAGE}"
 
 unset SCRIPT_ROOT
 
@@ -154,5 +155,7 @@ if [ $? -ne 0 ]; then
 	pyrex_cleanup
 	return 1
 fi
+
+${REPO_ROOT}/scripts/check-ni-repos
 
 pyrex_cleanup
