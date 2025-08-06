@@ -53,6 +53,6 @@ docker build \
 ## TODO: Add a more descriptive tag for differentiating image versions.
 docker tag \
 	"${IMAGE_NAME}:${short_hash}" \
-	"${IMAGE_NAME}:v1"
+	"${IMAGE_NAME}:latest"
 
 set +eux
