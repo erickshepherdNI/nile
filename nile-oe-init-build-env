@@ -76,6 +76,7 @@ export GIT_REPODIR="${REPO_ROOT}/sources"
 export TERM=${TERM:-xterm-256color}
 
 BITBAKEDIR=${REPO_ROOT}/sources/bitbake
+OEROOT=${REPO_ROOT}/sources/openembedded-core
 
 ## BITBAKE VARIABLES ##
 # Users can assert the maximum number of concurrent bitbake threads via the
