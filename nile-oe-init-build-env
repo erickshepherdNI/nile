@@ -98,7 +98,7 @@ else
 fi
 echo "TEMPLATECONF=${TEMPLATECONF}"
 
-# Define here all Talladega-specific variables which need to be passed to bitbake
+# Define here all Nile-specific variables which need to be passed to bitbake
 # (should include everything we've set above which is non-standard)
 # Any PAT tokens should be captured here as well.
 export BB_ENV_PASSTHROUGH_ADDITIONS="${BB_ENV_PASSTHROUGH_ADDITIONS:-} \
@@ -109,15 +109,16 @@ export BB_ENV_PASSTHROUGH_ADDITIONS="${BB_ENV_PASSTHROUGH_ADDITIONS:-} \
 	BB_SIGNATURE_HANDLER \
 	BB_HASHSERVE \
 	SSTATE_MIRRORS \
-	nibuild_component_version \
 "
 
 ## PYREX VARIABLES ###
 # Setup pyrex config variables
 export PYREXCONFFILE=${PYREXCONFFILE:-"${SCRIPT_ROOT}/pyrex.ini"}
 export PYREX_CONFIG_BIND="${REPO_ROOT}"
-export PYREX_OEINIT="${REPO_ROOT}/scripts/pyrex-oe-init"
+export PYREX_OEINIT="${REPO_ROOT}/sources/openembedded-core/oe-init-build-env"
 export PYREX_ROOT="${REPO_ROOT}/sources/pyrex"
+
+export PYREX_BUILD_NILE_IMAGE="${PYREX_BUILD_NILE_IMAGE:-build-nile}"
 
 unset SCRIPT_ROOT
 
