@@ -25,6 +25,7 @@ if [ -n "${AZDO_TOKEN}" ]; then
 fi
 
 echo "Printing .netrc..."
+echo $NETRC
 cat $NETRC
 
 #if [ -n "${GITHUB_TOKEN}" ]; then
